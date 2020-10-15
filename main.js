@@ -259,11 +259,32 @@ document.addEventListener("click", function(e) {
     }
   } else if (target.tagName == "H3") {
     let tableWrap = target.parentElement;
+    console.log(e.shiftKey);
     if (tableWrap.id !== "favorites") {
-      if (tableWrap.className == "table-wrap") {
-        tableWrap.className = "table-wrap collapsed-table";
+      let collapsed = tableWrap.className == "table-wrap collapsed-table";
+      console.log(collapsed);
+      if (e.shiftKey === false) {
+        if (collapsed === false) {
+          tableWrap.className = "table-wrap collapsed-table";
+        } else {
+          tableWrap.className = "table-wrap";
+        }
       } else {
-        tableWrap.className = "table-wrap";
+        if (collapsed === false) {
+          let tables = document.querySelectorAll(".table-wrap");
+          console.log(tables);
+          for (var i = 0; i < tables.length; i++) {
+            console.log("loop: " + tables[i].id);
+            tables[i].className = "table-wrap collapsed-table";
+          }
+        } else {
+          let tables = document.querySelectorAll(".collapsed-table");
+          console.log(tables);
+          for (var i = 0; i < tables.length; i++) {
+            console.log("loop: " + tables[i].id);
+            tables[i].className = "table-wrap";
+          }
+        }
       }
     }
   }
