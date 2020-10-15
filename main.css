@@ -54,3 +54,16 @@ h3 {
   border: 1px solid #ddd;
   outline: none;
 }
+
+#notes {
+  width: 250px;
+  height: 55px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  padding: 15px;
+}
