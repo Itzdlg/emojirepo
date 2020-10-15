@@ -22,7 +22,7 @@ function alertText(info) {
     }
     
     activeAlert = null;
-  }, 5 * 1000);
+  }, 2 * 1000);
 }
 
 function copyURI(evt) {
