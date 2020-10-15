@@ -6,8 +6,10 @@
     <script src="main.js"></script>
   </head>
   <body>
+    <div id="notes"><p>NOTE: Left click on an emoji preview to favorite it, left click again to unfavorite.</p></div>
     <div id="content">
       <input type="text" id="searchBox" onkeyup="search()" placeholder="Search for emojis..">
+      <button id="showFavorites">Show Favorites</button>
       <div class="table-wrap" id="Pepe"><h3>Pepe Emojis</h3>
       <table class="emoji-table">
         <tr>
@@ -16,147 +18,147 @@
           <th>Link</th>
         </tr>
 <tr>
-  <td><img src="https://itzdlg.github.io/emojis/FeelsPepeMan.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/FeelsPepeMan.png"></img></td>
   <td>FeelsPepeMan</td>
   <td><a href="https://itzdlg.github.io/emojis/FeelsPepeMan.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeAngry.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeAngry.png"></img></td>
   <td>PepeAngry</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeAngry.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeCheer.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeCheer.png"></img></td>
   <td>PepeCheer</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeCheer.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeChrist.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeChrist.png"></img></td>
   <td>PepeChrist</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeChrist.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeCrazy.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeCrazy.gif"></img></td>
   <td>PepeCrazy</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeCrazy.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeCry.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeCry.png"></img></td>
   <td>PepeCry</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeCry.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeDerpThink.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeDerpThink.png"></img></td>
   <td>PepeDerpThink</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeDerpThink.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeEz.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeEz.png"></img></td>
   <td>PepeEz</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeEz.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeGun.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeGun.png"></img></td>
   <td>PepeGun</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeGun.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeHug.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeHug.png"></img></td>
   <td>PepeHug</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeHug.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeHugged.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeHugged.png"></img></td>
   <td>PepeHugged</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeHugged.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeKek.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeKek.png"></img></td>
   <td>PepeKek</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeKek.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeKing.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeKing.png"></img></td>
   <td>PepeKing</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeKing.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeLink.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeLink.png"></img></td>
   <td>PepeLink</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeLink.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeLove.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeLove.png"></img></td>
   <td>PepeLove</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeLove.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeNoLove.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeNoLove.png"></img></td>
   <td>PepeNoLove</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeNoLove.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeNoU.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeNoU.gif"></img></td>
   <td>PepeNoU</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeNoU.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepePanties.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepePanties.png"></img></td>
   <td>PepePanties</td>
   <td><a href="https://itzdlg.github.io/emojis/PepePanties.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepePathetic.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepePathetic.png"></img></td>
   <td>PepePathetic</td>
   <td><a href="https://itzdlg.github.io/emojis/PepePathetic.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepePoggers.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepePoggers.png"></img></td>
   <td>PepePoggers</td>
   <td><a href="https://itzdlg.github.io/emojis/PepePoggers.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeSad.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeSad.png"></img></td>
   <td>PepeSad</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeSad.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeShit.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeShit.png"></img></td>
   <td>PepeShit</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeShit.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeShrug.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeShrug.png"></img></td>
   <td>PepeShrug</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeShrug.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeSmart.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeSmart.png"></img></td>
   <td>PepeSmart</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeSmart.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeThink.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeThink.png"></img></td>
   <td>PepeThink</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeThink.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeVeryHappy.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeVeryHappy.png"></img></td>
   <td>PepeVeryHappy</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeVeryHappy.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeWeird.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeWeird.png"></img></td>
   <td>PepeWeird</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeWeird.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeHyper.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeHyper.gif"></img></td>
   <td>PepeHyper</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeHyper.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeClap.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeClap.gif"></img></td>
   <td>PepeClap</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeClap.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeClown.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeClown.png"></img></td>
   <td>PepeClown</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeClown.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeRun.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeRun.gif"></img></td>
   <td>PepeRun</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeRun.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepePat.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepePat.gif"></img></td>
   <td>PepePat</td>
   <td><a href="https://itzdlg.github.io/emojis/PepePat.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeDance.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeDance.gif"></img></td>
   <td>PepeDance</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeDance.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeHands.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeHands.png"></img></td>
   <td>PepeHands</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeHands.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepeSimp.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepeSimp.gif"></img></td>
   <td>PepeSimp</td>
   <td><a href="https://itzdlg.github.io/emojis/PepeSimp.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PepePing.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PepePing.png"></img></td>
   <td>PepePing</td>
   <td><a href="https://itzdlg.github.io/emojis/PepePing.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr></table></div>      <div class="table-wrap" id="Panda"><h3>Panda Emojis</h3>
@@ -167,79 +169,79 @@
           <th>Link</th>
         </tr>
 <tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaBlank.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaBlank.png"></img></td>
   <td>PandaBlank</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaBlank.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaCry.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaCry.png"></img></td>
   <td>PandaCry</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaCry.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaEz.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaEz.png"></img></td>
   <td>PandaEz</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaEz.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaF.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaF.png"></img></td>
   <td>PandaF</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaF.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaFight.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaFight.png"></img></td>
   <td>PandaFight</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaFight.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaHey.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaHey.png"></img></td>
   <td>PandaHey</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaHey.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaMad.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaMad.png"></img></td>
   <td>PandaMad</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaMad.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaMadSip.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaMadSip.png"></img></td>
   <td>PandaMadSip</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaMadSip.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaPolice.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaPolice.png"></img></td>
   <td>PandaPolice</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaPolice.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaPopcorn.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaPopcorn.png"></img></td>
   <td>PandaPopcorn</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaPopcorn.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaRee.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaRee.png"></img></td>
   <td>PandaRee</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaRee.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaSad.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaSad.png"></img></td>
   <td>PandaSad</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaSad.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaScared.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaScared.png"></img></td>
   <td>PandaScared</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaScared.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaSleep.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaSleep.png"></img></td>
   <td>PandaSleep</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaSleep.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaThink.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaThink.png"></img></td>
   <td>PandaThink</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaThink.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaWizard.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaWizard.png"></img></td>
   <td>PandaWizard</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaWizard.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaWoah.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaWoah.png"></img></td>
   <td>PandaWoah</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaWoah.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaWut.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaWut.png"></img></td>
   <td>PandaWut</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaWut.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PandaPlushie.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PandaPlushie.gif"></img></td>
   <td>PandaPlushie</td>
   <td><a href="https://itzdlg.github.io/emojis/PandaPlushie.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr></table></div>      <div class="table-wrap" id="Blob"><h3>Blob Emojis</h3>
@@ -250,47 +252,47 @@
           <th>Link</th>
         </tr>
 <tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobBlush.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobBlush.png"></img></td>
   <td>BlobBlush</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobBlush.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobEyes.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobEyes.png"></img></td>
   <td>BlobEyes</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobEyes.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobFood.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobFood.png"></img></td>
   <td>BlobFood</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobFood.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobNo.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobNo.png"></img></td>
   <td>BlobNo</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobNo.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobPat.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobPat.png"></img></td>
   <td>BlobPat</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobPat.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobPensive.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobPensive.png"></img></td>
   <td>BlobPensive</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobPensive.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobSad.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobSad.png"></img></td>
   <td>BlobSad</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobSad.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobSmirk.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobSmirk.png"></img></td>
   <td>BlobSmirk</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobSmirk.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobSweat.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobSweat.png"></img></td>
   <td>BlobSweat</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobSweat.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlobWoah.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlobWoah.png"></img></td>
   <td>BlobWoah</td>
   <td><a href="https://itzdlg.github.io/emojis/BlobWoah.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/NotLikeBlob.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/NotLikeBlob.png"></img></td>
   <td>NotLikeBlob</td>
   <td><a href="https://itzdlg.github.io/emojis/NotLikeBlob.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr></table></div>      <div class="table-wrap" id="Cat"><h3>Cat Emojis</h3>
@@ -301,27 +303,27 @@
           <th>Link</th>
         </tr>
 <tr>
-  <td><img src="https://itzdlg.github.io/emojis/CatSmile.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/CatSmile.png"></img></td>
   <td>CatSmile</td>
   <td><a href="https://itzdlg.github.io/emojis/CatSmile.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/CatWhat.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/CatWhat.png"></img></td>
   <td>CatWhat</td>
   <td><a href="https://itzdlg.github.io/emojis/CatWhat.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/RoofCat.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/RoofCat.png"></img></td>
   <td>RoofCat</td>
   <td><a href="https://itzdlg.github.io/emojis/RoofCat.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/SadCat.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/SadCat.png"></img></td>
   <td>SadCat</td>
   <td><a href="https://itzdlg.github.io/emojis/SadCat.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BongoCat.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BongoCat.gif"></img></td>
   <td>BongoCat</td>
   <td><a href="https://itzdlg.github.io/emojis/BongoCat.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/HyperBongoCat.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/HyperBongoCat.gif"></img></td>
   <td>HyperBongoCat</td>
   <td><a href="https://itzdlg.github.io/emojis/HyperBongoCat.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr></table></div>      <div class="table-wrap" id="Worry"><h3>Worry Emojis</h3>
@@ -332,23 +334,23 @@
           <th>Link</th>
         </tr>
 <tr>
-  <td><img src="https://itzdlg.github.io/emojis/WorryRope.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/WorryRope.png"></img></td>
   <td>WorryRope</td>
   <td><a href="https://itzdlg.github.io/emojis/WorryRope.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/WorryLook.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/WorryLook.png"></img></td>
   <td>WorryLook</td>
   <td><a href="https://itzdlg.github.io/emojis/WorryLook.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/WorryRun.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/WorryRun.gif"></img></td>
   <td>WorryRun</td>
   <td><a href="https://itzdlg.github.io/emojis/WorryRun.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/WorrySmile.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/WorrySmile.png"></img></td>
   <td>WorrySmile</td>
   <td><a href="https://itzdlg.github.io/emojis/WorrySmile.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/WorryHeart.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/WorryHeart.png"></img></td>
   <td>WorryHeart</td>
   <td><a href="https://itzdlg.github.io/emojis/WorryHeart.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr></table></div>      <div class="table-wrap" id="Other"><h3>Other Emojis</h3>
@@ -359,127 +361,127 @@
           <th>Link</th>
         </tr>
 <tr>
-  <td><img src="https://itzdlg.github.io/emojis/Barnaby.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Barnaby.png"></img></td>
   <td>Barnaby</td>
   <td><a href="https://itzdlg.github.io/emojis/Barnaby.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BlueLove.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BlueLove.gif"></img></td>
   <td>BlueLove</td>
   <td><a href="https://itzdlg.github.io/emojis/BlueLove.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/BullshitThomas.jpg"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/BullshitThomas.jpg"></img></td>
   <td>BullshitThomas</td>
   <td><a href="https://itzdlg.github.io/emojis/BullshitThomas.jpg" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/CarolBaskin.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/CarolBaskin.png"></img></td>
   <td>CarolBaskin</td>
   <td><a href="https://itzdlg.github.io/emojis/CarolBaskin.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/DebbyRyan.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/DebbyRyan.png"></img></td>
   <td>DebbyRyan</td>
   <td><a href="https://itzdlg.github.io/emojis/DebbyRyan.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/DogGun.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/DogGun.png"></img></td>
   <td>DogGun</td>
   <td><a href="https://itzdlg.github.io/emojis/DogGun.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/EggButt.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/EggButt.gif"></img></td>
   <td>EggButt</td>
   <td><a href="https://itzdlg.github.io/emojis/EggButt.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Floosh.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Floosh.png"></img></td>
   <td>Floosh</td>
   <td><a href="https://itzdlg.github.io/emojis/Floosh.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Gopher.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Gopher.png"></img></td>
   <td>Gopher</td>
   <td><a href="https://itzdlg.github.io/emojis/Gopher.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/HeartCard.gif"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/HeartCard.gif"></img></td>
   <td>HeartCard</td>
   <td><a href="https://itzdlg.github.io/emojis/HeartCard.gif" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Hollow.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Hollow.png"></img></td>
   <td>Hollow</td>
   <td><a href="https://itzdlg.github.io/emojis/Hollow.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/KekW.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/KekW.png"></img></td>
   <td>KekW</td>
   <td><a href="https://itzdlg.github.io/emojis/KekW.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Kermit.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Kermit.png"></img></td>
   <td>Kermit</td>
   <td><a href="https://itzdlg.github.io/emojis/Kermit.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/NotKekW.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/NotKekW.png"></img></td>
   <td>NotKekW</td>
   <td><a href="https://itzdlg.github.io/emojis/NotKekW.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/NoWay.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/NoWay.png"></img></td>
   <td>NoWay</td>
   <td><a href="https://itzdlg.github.io/emojis/NoWay.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PikaFacepalm.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PikaFacepalm.png"></img></td>
   <td>PikaFacepalm</td>
   <td><a href="https://itzdlg.github.io/emojis/PikaFacepalm.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PikaThink.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PikaThink.png"></img></td>
   <td>PikaThink</td>
   <td><a href="https://itzdlg.github.io/emojis/PikaThink.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PotatoSad.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PotatoSad.png"></img></td>
   <td>PotatoSad</td>
   <td><a href="https://itzdlg.github.io/emojis/PotatoSad.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/SnowmanThink.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/SnowmanThink.png"></img></td>
   <td>SnowmanThink</td>
   <td><a href="https://itzdlg.github.io/emojis/SnowmanThink.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/SockPing.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/SockPing.png"></img></td>
   <td>SockPing</td>
   <td><a href="https://itzdlg.github.io/emojis/SockPing.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/SoonTM.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/SoonTM.png"></img></td>
   <td>SoonTM</td>
   <td><a href="https://itzdlg.github.io/emojis/SoonTM.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/SureThing.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/SureThing.png"></img></td>
   <td>SureThing</td>
   <td><a href="https://itzdlg.github.io/emojis/SureThing.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/SwearEgg.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/SwearEgg.png"></img></td>
   <td>SwearEgg</td>
   <td><a href="https://itzdlg.github.io/emojis/SwearEgg.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Watchdog.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Watchdog.png"></img></td>
   <td>Watchdog</td>
   <td><a href="https://itzdlg.github.io/emojis/Watchdog.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/YouOkay.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/YouOkay.png"></img></td>
   <td>YouOkay</td>
   <td><a href="https://itzdlg.github.io/emojis/YouOkay.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Angery.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Angery.png"></img></td>
   <td>Angery</td>
   <td><a href="https://itzdlg.github.io/emojis/Angery.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/AnimeDetective.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/AnimeDetective.png"></img></td>
   <td>AnimeDetective</td>
   <td><a href="https://itzdlg.github.io/emojis/AnimeDetective.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/ApplePog.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/ApplePog.png"></img></td>
   <td>ApplePog</td>
   <td><a href="https://itzdlg.github.io/emojis/ApplePog.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/PogChamp.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/PogChamp.png"></img></td>
   <td>PogChamp</td>
   <td><a href="https://itzdlg.github.io/emojis/PogChamp.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/Pogoo.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/Pogoo.png"></img></td>
   <td>Pogoo</td>
   <td><a href="https://itzdlg.github.io/emojis/Pogoo.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr><tr>
-  <td><img src="https://itzdlg.github.io/emojis/5head.png"></img></td>
+  <td><img class="emoji" src="https://itzdlg.github.io/emojis/5head.png"></img></td>
   <td>5head</td>
   <td><a href="https://itzdlg.github.io/emojis/5head.png" onclick="copyURI(event)">Click To Copy</a></td>
 </tr></table></div></div></body></html>
