@@ -2,14 +2,15 @@
 <html>
   <head>
     <title>Emoji Repository</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
     <link rel="stylesheet" href="main.css">
     <script src="main.js"></script>
   </head>
   <body>
     <div id="notes"><p>NOTE: Left click on an emoji preview to favorite it, left click again to unfavorite.</p></div>
     <div id="content">
-      <input type="text" id="searchBox" onkeyup="search()" placeholder="Search for emojis..">
-      <button id="showFavorites">Show Favorites</button>
+      <span id="header"><input type="text" id="searchBox" onkeyup="search()" placeholder="Search for emojis..">
+      <button id="showFavorites">Show Favorites</button></span>
       <div class="table-wrap" id="Pepe"><h3>Pepe Emojis</h3>
       <table class="emoji-table">
         <tr>

@@ -1,7 +1,7 @@
 var activeAlert;
 function alertText(info) {
   body = document.documentElement.children[1];
-  contentDiv = document.getElementById("content");
+  insertDiv = document.getElementById("notes");
   if (activeAlert !== undefined && activeAlert !== null) {
     body.removeChild(activeAlert);
   }
@@ -12,7 +12,7 @@ function alertText(info) {
   alertBox.id = "alert"
   
   alertBox.appendChild(alertText);
-  body.insertBefore(alertBox, contentDiv);
+  body.insertBefore(alertBox, insertDiv);
   
   activeAlert = alertBox;
   
