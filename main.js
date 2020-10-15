@@ -107,9 +107,13 @@ function isFavorited(emojiID) {
   return getFavorites().indexOf(emojiID) != -1;
 }
 
+function isFavoritesShowing() {
+  return document.getElementById("favorites").style.display == "";
+}
+
 function toggleFavorites() {
-  let showingFavorites = document.getElementById("favorites").style.display == "";
-  let children = document.getElementById("content").children;
+  var showingFavorites = isFavoritesShowing();
+  var children = document.getElementById("content").children;
   for (i = 0; i < children.length; i++) {
     if (showingFavorites == false) {
       if (children[i].id == "favorites" || children[i].id == "searchBox" || children[i].id == "showFavorites") {
@@ -127,6 +131,36 @@ function toggleFavorites() {
       }
     }
   }
+  
+  if (showingFavorites == false) {
+    updateFavoritesTable(true);
+  }
+}
+
+function insertEmojiToTable(favorite, tb) {
+  var row = tb.insertRow();
+  var emoji = row.insertCell(0);
+  var pic = document.createElement("img");
+  pic.src = "https://itzdlg.github.io/emojis/" + favorite;
+  pic.className = "emoji";
+  emoji.appendChild(pic);
+  
+  var name = favorite;
+  var index = favorite.lastIndexOf(".");
+  if (index != -1) {
+    name = favorite.substring(0, index);
+  }
+  
+  var emojiName = row.insertCell(1);
+  emojiName.innerHTML = name;
+  
+  var linkElem = document.createElement("a");
+  linkElem.innerHTML = "Click To Copy";
+  linkElem.href = "https://itzdlg.github.io/emojis/" + favorite;
+  linkElem.addEventListener("click", copyURI);
+  
+  var linkCell = row.insertCell(2);
+  linkCell.appendChild(linkElem);
 }
 
 function updateFavoritesTable(exists) {
@@ -158,32 +192,9 @@ function updateFavoritesTable(exists) {
   headRow.appendChild(emojiIDCol);
   headRow.appendChild(emojiLink);
   
-  var favorites = getFavorites();
+  let favorites = getFavorites();
   for (i = 0; i < favorites.length; i++) {
-    var favorite = favorites[i];
-    var row = tb.insertRow();
-    var emoji = row.insertCell(0);
-    var pic = document.createElement("img");
-    pic.src = "https://itzdlg.github.io/emojis/" + favorite;
-    pic.className = "emoji";
-    emoji.appendChild(pic);
-    
-    var name = favorite;
-    var index = favorite.lastIndexOf(".");
-    if (index != -1) {
-      name = favorite.substring(0, index);
-    }
-    
-    var emojiName = row.insertCell(1);
-    emojiName.innerHTML = name;
-    
-    var linkElem = document.createElement("a");
-    linkElem.innerHTML = "Click To Copy";
-    linkElem.href = "https://itzdlg.github.io/emojis/" + favorite;
-    linkElem.addEventListener("click", copyURI);
-    
-    var linkCell = row.insertCell(2);
-    linkCell.appendChild(linkElem);
+    insertEmojiToTable(favorites[i], tb);
   }
   
   elem.appendChild(tb);
@@ -193,7 +204,6 @@ window.onload = function() {
   document.getElementById("showFavorites").addEventListener("click", toggleFavorites);
   
   updateFavoritesTable(false);
-  toggleFavorites();
 }
 
 document.addEventListener("click", function(e) {
@@ -206,10 +216,13 @@ document.addEventListener("click", function(e) {
     let tag = tdLink.substring(tdLink.lastIndexOf("/") + 1);
     if (isFavorited(tag)) {
       unfavorite(tag);
+      
+      if (isFavoritesShowing()) {
+        tr.parentElement.removeChild(tr);
+      }
     } else {
       favorite(tag);
+      insertEmojiToTable(tag, document.getElementById("favorite-table"));
     }
-    
-    updateFavoritesTable(true);
   }
 }, true);
