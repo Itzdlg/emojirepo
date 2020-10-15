@@ -120,6 +120,18 @@ h3 {
   font-size: 20px;
 }
 
+.table-wrap h3 {
+  cursor: pointer;
+}
+
+.collapsed-table table {
+  display: none;
+}
+
+.collapsed-table h3 {
+  border-bottom: 2px solid white;
+}
+
 td {
   line-height: 48px;
 }

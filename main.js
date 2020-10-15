@@ -235,10 +235,12 @@ window.onload = function() {
 }
 
 document.addEventListener("click", function(e) {
-  let emoji = e.target;
-  if (emoji.className == "emoji") {
+  let target = e.target;
+  console.log(target);
+  console.log(target.tagName);
+  if (target.className == "emoji") {
     e.stopPropagation();
-    let td = emoji.parentElement;
+    let td = target.parentElement;
     let tr = td.parentElement;
     let tdLink = tr.children[2].children[0].href;
     let tag = tdLink.substring(tdLink.lastIndexOf("/") + 1);
@@ -254,6 +256,15 @@ document.addEventListener("click", function(e) {
       favorite(tag);
       insertEmojiToTable(tag, document.getElementById("favorite-table"));
       alertText("Favorited " + tag.substring(0, tag.lastIndexOf(".")));
+    }
+  } else if (target.tagName == "H3") {
+    let tableWrap = target.parentElement;
+    if (tableWrap.id !== "favorites") {
+      if (tableWrap.className == "table-wrap") {
+        tableWrap.className = "table-wrap collapsed-table";
+      } else {
+        tableWrap.className = "table-wrap";
+      }
     }
   }
 }, true);
