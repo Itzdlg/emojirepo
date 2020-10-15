@@ -67,3 +67,22 @@ h3 {
   margin-top: 15px;
   padding: 15px;
 }
+
+#alert {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 50%;
+  height: 45px;
+  
+  background-color: #0ac4c1;
+  border: none;
+  border-radius: 5px;
+  
+  position: sticky;
+  top: 5px;
+  
+  color: white;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+}

@@ -1,9 +1,38 @@
+var activeAlert;
+function alertText(info) {
+  body = document.documentElement.children[1];
+  contentDiv = document.getElementById("content");
+  if (activeAlert !== undefined && activeAlert !== null) {
+    body.removeChild(activeAlert);
+  }
+  
+  var alertBox = document.createElement("div");
+  var alertText = document.createTextNode(info);
+
+  alertBox.id = "alert"
+  
+  alertBox.appendChild(alertText);
+  body.insertBefore(alertBox, contentDiv);
+  
+  activeAlert = alertBox;
+  
+  window.setTimeout(function() {
+    if (activeAlert !== undefined && activeAlert !== null) {
+      body.removeChild(activeAlert);
+    }
+    
+    activeAlert = null;
+  }, 5 * 1000);
+}
+
 function copyURI(evt) {
     evt.preventDefault();
-    navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
-
+    let link = evt.target.getAttribute('href');
+    navigator.clipboard.writeText(link).then(() => {
+      let tag = link.substring(link.lastIndexOf("/") + 1);
+      alertText("Copied " + tag.substring(0, tag.lastIndexOf(".")) + " to clipboard");
     }, () => {
-
+      alertText("Unable to copy emoji to clipboard");
     });
 }
 
@@ -113,28 +142,26 @@ function isFavoritesShowing() {
 
 function toggleFavorites() {
   var showingFavorites = isFavoritesShowing();
-  var children = document.getElementById("content").children;
-  for (i = 0; i < children.length; i++) {
-    if (showingFavorites == false) {
-      if (children[i].id == "favorites" || children[i].id == "searchBox" || children[i].id == "showFavorites") {
-        children[i].style.display = "";
-        document.getElementById("showFavorites").innerHTML = "Hide Favorites";
-      } else {
-        children[i].style.display = "none";
-      }
-    } else if (showingFavorites == true) {
-      if (children[i].id == "favorites") {
-        children[i].style.display = "none";
-      } else {
-        children[i].style.display = "";
-        document.getElementById("showFavorites").innerHTML = "Show Favorites";
-      }
-    }
+  var emojiTables = document.getElementsByClassName("table-wrap");
+  var display, text;
+  if (showingFavorites == false) {
+    display = "none";
+    text = "Hide Favorites";
+  } else if (showingFavorites == true) {
+    display = "";
+    text = "Show Favorites";
   }
   
-  if (showingFavorites == false) {
-    updateFavoritesTable(true);
+  for (i = 0; i < emojiTables.length; i++) {
+    emojiTables[i].style.display = display;
   }
+  
+  updateFavoritesTable(true);
+  if (showingFavorites == false) {
+    document.getElementById("favorites").style.display = "";
+  }
+  
+  document.getElementById("showFavorites").innerHTML = text;
 }
 
 function insertEmojiToTable(favorite, tb) {
@@ -170,6 +197,7 @@ function updateFavoritesTable(exists) {
   
   var elem = document.createElement("div");
   elem.id = "favorites";
+  elem.style.display = "none";
   document.getElementById("content").appendChild(elem);
   
   var header = document.createElement("h3");
@@ -220,9 +248,12 @@ document.addEventListener("click", function(e) {
       if (isFavoritesShowing()) {
         tr.parentElement.removeChild(tr);
       }
+      
+      alertText("Unfavorited " + tag.substring(0, tag.lastIndexOf(".")));
     } else {
       favorite(tag);
       insertEmojiToTable(tag, document.getElementById("favorite-table"));
+      alertText("Favorited " + tag.substring(0, tag.lastIndexOf(".")));
     }
   }
 }, true);
