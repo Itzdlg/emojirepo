@@ -8,12 +8,15 @@ function copyURI(evt) {
 }
 
 function search() {
-  // Declare variables
-  var table;
-  table = document.getElementsByClassName("table-wrap");
-  
-  for (i = 0; i < table.length; i++) {
-    searchTable(table[i]);
+  if (document.getElementById("favorites").style.display == "") {
+    searchFavorites();
+  } else {
+    var table;
+    table = document.getElementsByClassName("table-wrap");
+    
+    for (i = 0; i < table.length; i++) {
+      searchTable(table[i]);
+    }
   }
 }
 
@@ -45,6 +48,29 @@ function searchTable(wrap) {
     wrap.style.display = "none";
   } else {
     wrap.style.display = "";
+  }
+}
+
+function searchFavorites() {
+  var input, filter, tr, td, i, txtValue, table;
+  table = document.getElementById("favorite-table");
+  
+  
+  input = document.getElementById("searchBox");
+  filter = input.value.toUpperCase();
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
   }
 }
 
