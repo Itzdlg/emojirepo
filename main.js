@@ -228,18 +228,27 @@ function updateFavoritesTable(exists) {
   elem.appendChild(tb);
 }
 
+var lightTheme = "https://cdn.jsdelivr.net/npm/water.css@2/out/light.css";
+var darkTheme = "https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css";
 window.onload = function() {
   document.getElementById("showFavorites").addEventListener("click", toggleFavorites);
   
   var stylesheet = document.getElementById("watercss");
-  var light = "https://cdn.jsdelivr.net/npm/water.css@2/out/light.css";
-  var dark = "https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css";
+  var storage = window.localStorage;
+  
+  var savedTheme = storage.getItem('theme');
+  if (savedTheme !== undefined && savedTheme !== null) {
+    stylesheet.href = savedTheme === "light" ? lightTheme : darkTheme;
+  }
+  
   document.getElementById("light-mode").addEventListener("click", function() {
-    stylesheet.href = light;
+    stylesheet.href = lightTheme;
+    storage.setItem('theme', 'light');
   });
   
     document.getElementById("dark-mode").addEventListener("click", function() {
-    stylesheet.href = dark;
+    stylesheet.href = darkTheme;
+    storage.setItem('theme', 'dark');
   });
   
   updateFavoritesTable(false);
