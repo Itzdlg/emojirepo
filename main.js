@@ -1,7 +1,7 @@
 var activeAlert;
 function alertText(info) {
   body = document.documentElement.children[1];
-  insertDiv = document.getElementById("notes");
+  insertDiv = document.getElementById("header");
   if (activeAlert !== undefined && activeAlert !== null) {
     body.removeChild(activeAlert);
   }
@@ -230,6 +230,17 @@ function updateFavoritesTable(exists) {
 
 window.onload = function() {
   document.getElementById("showFavorites").addEventListener("click", toggleFavorites);
+  
+  var stylesheet = document.getElementById("watercss");
+  var light = "https://cdn.jsdelivr.net/npm/water.css@2/out/light.css";
+  var dark = "https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css";
+  document.getElementById("light-mode").addEventListener("click", function() {
+    stylesheet.href = light;
+  });
+  
+    document.getElementById("dark-mode").addEventListener("click", function() {
+    stylesheet.href = dark;
+  });
   
   updateFavoritesTable(false);
 }
