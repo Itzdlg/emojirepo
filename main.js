@@ -27,7 +27,10 @@ function alertText(info) {
 
 function copyURI(evt) {
     evt.preventDefault();
-    let link = evt.target.getAttribute('href');
+    let smallLink = evt.target.getAttribute('href');
+    let originalLink = evt.target.dataset.large;
+    
+    let link = evt.shiftKey ? originalLink : smallLink;
     navigator.clipboard.writeText(link).then(() => {
       let tag = link.substring(link.lastIndexOf("/") + 1);
       alertText("Copied " + tag.substring(0, tag.lastIndexOf(".")) + " to clipboard");
