@@ -183,7 +183,7 @@ function insertEmojiToTable(favorite, tb) {
   
   var linkElem = document.createElement("a");
   linkElem.innerHTML = "Click To Copy";
-  linkElem.href = "https://itzdlg.github.io/emojis/" + favorite;
+  linkElem.href = "https://itzdlg.github.io/emojirepo/emojis/" + favorite;
   linkElem.addEventListener("click", copyURI);
   
   var linkCell = row.insertCell(2);
