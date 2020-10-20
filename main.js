@@ -168,7 +168,7 @@ function insertEmojiToTable(favorite, tb) {
   var row = tb.insertRow();
   var emoji = row.insertCell(0);
   var pic = document.createElement("img");
-  pic.src = "https://itzdlg.github.io/emojis/" + favorite;
+  pic.src = "https://itzdlg.github.io/emojirepo/emojis/" + favorite;
   pic.className = "emoji";
   emoji.appendChild(pic);
   
