@@ -14,7 +14,7 @@ function insertButton() {
   buttonDiv.id = "stemojis-button"
   
   var img = document.createElement('img')
-  img.src = 'https://itzdlg.github.io/emojirepo/emojis/PandaMadSip.png'
+  img.src = stemojis_button_emojis[Math.floor(Math.random() * stemojis_button_emojis.length)];
   img.style.width = '32px'
   img.style.height = '32px'
   img.style.verticalAlign = 'middle'
@@ -93,6 +93,16 @@ function withUrlContent(url, callback) {
 }
 
 var stemojis_tree_content = '';
+var stemojis_button_emojis = [
+  'https://itzdlg.github.io/emojirepo/emojis/Angery.png',
+  'https://itzdlg.github.io/emojirepo/emojis/PandaMadSip.png',
+  'https://itzdlg.github.io/emojirepo/emojis/PandaPlushie.gif',
+  'https://itzdlg.github.io/emojirepo/emojis/PikaFacepalm.png',
+  'https://itzdlg.github.io/emojirepo/emojis/PepePathetic.png',
+  'https://itzdlg.github.io/emojirepo/emojis/WorryLook.png',
+  'https://itzdlg.github.io/emojirepo/emojis/AnimeDetective.png',
+  'https://itzdlg.github.io/emojirepo/emojis/BlobNo.png'
+];
 module.exports = class STEmojisPlugin {  
   start() {
     withUrlContent('https://api.github.com/repos/Itzdlg/emojirepo/git/trees/0a399bf163fabcb34e318626df6772fc73c3c3d7', function(urlContent) {
