@@ -1,11 +1,57 @@
 /**
  * @name STEmojis
  * @author SchoolTests
- * @version 0.0.1
+ * @version 1.0.0
  * @description Implements a button to grab emojis from the website
  * 
  * @website https://itzdlg.github.io/emojirepo/
  */
+ 
+/* Element Rundown:
+* #stemojis-web : The panel of emojis that appears after clicking the textbox button
+* #stemojis-button : The button in the textbox to make the emoji panel appear
+* .stemojis-emoji : The emoji image themselves, which are all in the panel
+*/
+ 
+var stemojis_tree_content = '';
+var stemojis_button_emojis = [
+  'https://itzdlg.github.io/emojirepo/emojis/Angery.png',
+  'https://itzdlg.github.io/emojirepo/emojis/PandaMadSip.png',
+  'https://itzdlg.github.io/emojirepo/emojis/PandaPlushie.gif',
+  'https://itzdlg.github.io/emojirepo/emojis/PikaFacepalm.png',
+  'https://itzdlg.github.io/emojirepo/emojis/PepePathetic.png',
+  'https://itzdlg.github.io/emojirepo/emojis/WorryLook.png',
+  'https://itzdlg.github.io/emojirepo/emojis/AnimeDetective.png',
+  'https://itzdlg.github.io/emojirepo/emojis/BlobNo.png'
+];
+
+module.exports = class STEmojisPlugin {  
+  start() {
+    withUrlContent('https://api.github.com/repos/Itzdlg/emojirepo/git/trees/0a399bf163fabcb34e318626df6772fc73c3c3d7', function(urlContent) {
+      stemojis_tree_content = urlContent
+      
+      window.setInterval(function() {
+        var buttonElement = document.getElementById("stemojis-button")
+        if (!buttonElement && buttonElement !== undefined) {
+          insertButton()
+        }
+      }, 500)
+      
+      document.addEventListener("click", function(e) {
+        let target = e.target;
+        if (target.className == "stemojis-emoji") {
+          e.stopPropagation();
+          copyURI(e)
+        } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
+          document.getElementById("stemojis-web").style.display = 'none'
+        }
+      }, true);
+    })
+  }
+
+  stop() {}
+ 
+}
 
 function insertButton() {
   var buttonsDiv = document.getElementsByClassName('buttons-3JBrkn')[0]
@@ -90,48 +136,4 @@ function withUrlContent(url, callback) {
 
   
   xhr.send();
-}
-
-var stemojis_tree_content = '';
-var stemojis_button_emojis = [
-  'https://itzdlg.github.io/emojirepo/emojis/Angery.png',
-  'https://itzdlg.github.io/emojirepo/emojis/PandaMadSip.png',
-  'https://itzdlg.github.io/emojirepo/emojis/PandaPlushie.gif',
-  'https://itzdlg.github.io/emojirepo/emojis/PikaFacepalm.png',
-  'https://itzdlg.github.io/emojirepo/emojis/PepePathetic.png',
-  'https://itzdlg.github.io/emojirepo/emojis/WorryLook.png',
-  'https://itzdlg.github.io/emojirepo/emojis/AnimeDetective.png',
-  'https://itzdlg.github.io/emojirepo/emojis/BlobNo.png'
-];
-module.exports = class STEmojisPlugin {  
-  start() {
-    withUrlContent('https://api.github.com/repos/Itzdlg/emojirepo/git/trees/0a399bf163fabcb34e318626df6772fc73c3c3d7', function(urlContent) {
-      stemojis_tree_content = urlContent
-      
-      var script = document.createElement('script');
-      script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-      script.type = 'text/javascript';
-      document.getElementsByTagName('head')[0].appendChild(script);
-      
-      window.setInterval(function() {
-        var buttonElement = document.getElementById("stemojis-button")
-        if (!buttonElement && buttonElement !== undefined) {
-          insertButton()
-        }
-      }, 500)
-      
-      document.addEventListener("click", function(e) {
-        let target = e.target;
-        if (target.className == "stemojis-emoji") {
-          e.stopPropagation();
-          copyURI(e)
-        } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
-          $('#stemojis-web').hide()
-        }
-      }, true);
-    })
-  }
-
-  stop() {}
- 
 }
