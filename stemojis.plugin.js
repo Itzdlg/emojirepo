@@ -27,30 +27,46 @@ var stemojis_button_emojis = [
 
 module.exports = class STEmojisPlugin {  
   start() {
-    withUrlContent('https://api.github.com/repos/Itzdlg/emojirepo/git/trees/0a399bf163fabcb34e318626df6772fc73c3c3d7', function(urlContent) {
-      stemojis_tree_content = urlContent
-      
-      window.setInterval(function() {
-        var buttonElement = document.getElementById("stemojis-button")
-        if (!buttonElement && buttonElement !== undefined) {
-          insertButton()
-        }
-      }, 500)
-      
-      document.addEventListener("click", function(e) {
-        let target = e.target;
-        if (target.className == "stemojis-emoji") {
-          e.stopPropagation();
-          copyURI(e)
-        } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
-          document.getElementById("stemojis-web").style.display = 'none'
-        }
-      }, true);
-    })
+    refreshEmojis()
+    window.setInterval(function() {
+      var buttonElement = document.getElementById("stemojis-button")
+      if (!buttonElement && buttonElement !== undefined) {
+        insertButton()
+      }
+    }, 500)
+    
+    document.addEventListener("click", function(e) {
+      let target = e.target;
+      if (target.className == "stemojis-emoji") {
+        e.stopPropagation();
+        copyURI(e)
+      } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
+        document.getElementById("stemojis-web").style.display = 'none'
+      }
+    }, true);
   }
 
   stop() {}
  
+}
+
+function refreshEmojis() {
+  withUrlContent('https://api.github.com/repos/Itzdlg/emojirepo/git/trees/master', function (content) {
+    console.log(content)
+    var json = JSON.parse(content)
+    var urlToEmojisFolder = ''
+    json.tree.forEach(obj => {
+      console.log("loop - " + obj.url)
+      if (obj.path === 'emojis') {
+        urlToEmojisFolder = obj.url
+      }
+    })
+    
+    console.log("url - " + urlToEmojisFolder)
+    withUrlContent(urlToEmojisFolder, function (emojiTree) {
+      stemojis_tree_content = emojiTree
+    })
+  })
 }
 
 function insertButton() {
