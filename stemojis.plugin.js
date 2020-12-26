@@ -1,7 +1,7 @@
 /**
  * @name STEmojis
  * @author SchoolTests
- * @version 1.0.0
+ * @version 2.0.0
  * @description Implements a button to grab emojis from the website
  * 
  * @website https://itzdlg.github.io/emojirepo/
@@ -26,53 +26,99 @@ var stemojis_button_emojis = [
 ];
 var stemojis_button_emoji = stemojis_button_emojis[Math.floor(Math.random() * stemojis_button_emojis.length)]
 
+function isEnabled() {
+  return BdApi.Plugins.isEnabled("STEmojis")
+}
+
+function exists(e) {
+  return typeof(e) != 'undefined' && e != null
+}
+
 module.exports = class STEmojisPlugin {  
   start() {
     refreshEmojis()
     window.setInterval(function() {
-      var buttonElement = document.getElementById("stemojis-button")
-      if (!buttonElement && buttonElement !== undefined) {
-        insertButton()
+      if (isEnabled() === true) {
+        var buttonElement = document.getElementById("stemojis-button")
+        if (!buttonElement && buttonElement !== undefined) {
+          createElements()
+        }
       }
     }, 500)
     
     document.addEventListener("click", function(e) {
-      let target = e.target;
-      if (target.className == "stemojis-emoji") {
-        e.stopPropagation()
-        copyURI(e)
-        
-        document.getElementById("stemojis-button").children[0].src = target.src
-        stemojis_button_emoji = target.src
-      } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
-        document.getElementById("stemojis-web").style.display = 'none'
+      if (isEnabled() === true) {
+        let target = e.target;
+        if (target.className == "stemojis-emoji") {
+          e.stopPropagation()
+          copyURI(e)
+          
+          document.getElementById("stemojis-button").children[0].src = target.src
+          stemojis_button_emoji = target.src
+        } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
+          document.getElementById("stemojis-web").style.display = 'none'
+        }
       }
     }, true);
   }
 
-  stop() {}
+  stop() {
+    window.setInterval(function() {
+      if (isEnabled() === false) {
+        deleteCreatedElements()
+      }
+    }, 500)
+  }
 }
 
 function refreshEmojis() {
   withUrlContent('https://api.github.com/repos/Itzdlg/emojirepo/git/trees/master', function (content) {
-    console.log(content)
     var json = JSON.parse(content)
     var urlToEmojisFolder = ''
     json.tree.forEach(obj => {
-      console.log("loop - " + obj.url)
       if (obj.path === 'emojis') {
         urlToEmojisFolder = obj.url
       }
     })
     
-    console.log("url - " + urlToEmojisFolder)
     withUrlContent(urlToEmojisFolder, function (emojiTree) {
       stemojis_tree_content = emojiTree
     })
   })
 }
 
-function insertButton() {
+function deleteCreatedElements() {
+  var button_ = document.getElementById('stemojis-button')
+  var section_ = document.getElementById('stemojis-web-section')
+  var panel_ = document.getElementById('stemojis-web')
+  var emojis_ = document.getElementsByClassName('stemojis-emoji')
+  
+  if (exists(button_)) {
+    if (exists(button_.children) && button_.children.length > 0) {
+      button_.children[0].remove()
+    }
+    
+    button_.remove()
+  }
+  
+  if (exists(emojis_)) {
+    for (var i = 0; i < emojis_.length; i++) {
+      emojis_[i].remove()
+    }
+  }
+  
+  if (exists(panel_)) {
+    panel_.remove()
+  }
+  
+  if (exists(section_)) {
+    section_.remove()
+  }
+}
+
+function createElements() {
+  deleteCreatedElements()
+  
   var buttonsDiv = document.getElementsByClassName('buttons-3JBrkn')[0]
   var buttonDiv = document.createElement('button')
   buttonDiv.style.background = 'rgba(204, 204, 204, 0)'
@@ -89,6 +135,7 @@ function insertButton() {
   
   var sectionContainer = document.createElement('section')
   sectionContainer.className = "positionContainer-DEuh7X da-positionContainer"
+  sectionContainer.id = "stemojis-web-section"
   document.getElementsByClassName('da-channelTextArea')[0].appendChild(sectionContainer)
   
   var webDiv = document.createElement('div')
@@ -134,9 +181,9 @@ function copyURI(evt) {
   evt.preventDefault();
   let link = evt.target.getAttribute('src');
   navigator.clipboard.writeText(link).then(() => {
-    console.log('Copied URL to clipboard')
+    console.log('[STEmojis] Copied URL to clipboard')
   }, () => {
-    console.log('Error copying URL to clipboard')
+    console.log('[STEmojis] Error copying URL to clipboard')
   });
 }
 
