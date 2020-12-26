@@ -15,15 +15,16 @@
  
 var stemojis_tree_content = '';
 var stemojis_button_emojis = [
-  'https://itzdlg.github.io/emojirepo/emojis/Angery.png',
   'https://itzdlg.github.io/emojirepo/emojis/PandaMadSip.png',
   'https://itzdlg.github.io/emojirepo/emojis/PandaPlushie.gif',
   'https://itzdlg.github.io/emojirepo/emojis/PikaFacepalm.png',
   'https://itzdlg.github.io/emojirepo/emojis/PepePathetic.png',
   'https://itzdlg.github.io/emojirepo/emojis/WorryLook.png',
   'https://itzdlg.github.io/emojirepo/emojis/AnimeDetective.png',
-  'https://itzdlg.github.io/emojirepo/emojis/BlobNo.png'
+  'https://itzdlg.github.io/emojirepo/emojis/BlobNo.png',
+  'https://itzdlg.github.io/emojirepo/emojis/LieDown.png'
 ];
+var stemojis_button_emoji = stemojis_button_emojis[Math.floor(Math.random() * stemojis_button_emojis.length)]
 
 module.exports = class STEmojisPlugin {  
   start() {
@@ -38,8 +39,11 @@ module.exports = class STEmojisPlugin {
     document.addEventListener("click", function(e) {
       let target = e.target;
       if (target.className == "stemojis-emoji") {
-        e.stopPropagation();
+        e.stopPropagation()
         copyURI(e)
+        
+        document.getElementById("stemojis-button").children[0].src = target.src
+        stemojis_button_emoji = target.src
       } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
         document.getElementById("stemojis-web").style.display = 'none'
       }
@@ -47,7 +51,6 @@ module.exports = class STEmojisPlugin {
   }
 
   stop() {}
- 
 }
 
 function refreshEmojis() {
@@ -76,11 +79,10 @@ function insertButton() {
   buttonDiv.id = "stemojis-button"
   
   var img = document.createElement('img')
-  img.src = stemojis_button_emojis[Math.floor(Math.random() * stemojis_button_emojis.length)];
+  img.src = stemojis_button_emoji
   img.style.width = '32px'
   img.style.height = '32px'
   img.style.verticalAlign = 'middle'
-  img.id = "stemojis-button"
  
   buttonDiv.appendChild(img)
   buttonsDiv.appendChild(buttonDiv)
