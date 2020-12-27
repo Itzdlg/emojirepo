@@ -25,6 +25,12 @@ var stemojis_button_emojis = [
   'https://itzdlg.github.io/emojirepo/emojis/LieDown.png'
 ];
 var stemojis_button_emoji = stemojis_button_emojis[Math.floor(Math.random() * stemojis_button_emojis.length)]
+var stemojis_stylesheet = ''
+
+var class_channelTextArea = BdApi.findModuleByProps('channelTextArea', 'channelName').channelTextArea
+var class_emojiItemDisabled = BdApi.findModuleByProps('emojiItemDisabled', 'emojiItem').emojiItemDisabled
+var class_positionContainer = BdApi.findModuleByProps('positionContainer', 'positionContainerEditingMessage').positionContainer
+var class_sprite = BdApi.findModuleByProps('sprite', 'emojiButton').sprite
 
 function isEnabled() {
   return BdApi.Plugins.isEnabled("STEmojis")
@@ -37,11 +43,18 @@ function exists(e) {
 module.exports = class STEmojisPlugin {  
   start() {
     refreshEmojis()
+    
+    var EID_Arr = class_emojiItemDisabled.split(' ')
+    var EID_classname = '.' + EID_Arr[0] + ', .' + EID_Arr[1]
+    BdApi.injectCSS('STEmojis', EID_classname + ' {filter: none; }')
+    
     window.setInterval(function() {
       if (isEnabled() === true) {
-        var buttonElement = document.getElementById("stemojis-button")
-        if (!buttonElement && buttonElement !== undefined) {
-          createElements()
+        if (document.getElementsByClassName(class_channelTextArea).length > 0) {
+          var buttonElement = document.getElementById("stemojis-button")
+          if (!buttonElement && buttonElement !== undefined) {
+            createElements()
+          }
         }
       }
     }, 500)
@@ -55,6 +68,13 @@ module.exports = class STEmojisPlugin {
           
           document.getElementById("stemojis-button").children[0].src = target.src
           stemojis_button_emoji = target.src
+        } else if (exists(target) && exists(className) && target.className.includes(class_emojiItemDisabled)) {
+          var emojiImg = target.children[0]
+          navigator.clipboard.writeText(emojiImg.src).then(() => {
+            console.log('[STEmojis] Copied URL to clipboard')
+          }, () => {
+            console.log('[STEmojis] Error copying URL to clipboard')
+          });
         } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
           document.getElementById("stemojis-web").style.display = 'none'
         }
@@ -68,6 +88,8 @@ module.exports = class STEmojisPlugin {
         deleteCreatedElements()
       }
     }, 500)
+    
+    BdApi.clearCSS('STEmojis')
   }
 }
 
@@ -134,9 +156,9 @@ function createElements() {
   buttonsDiv.appendChild(buttonDiv)
   
   var sectionContainer = document.createElement('section')
-  sectionContainer.className = "positionContainer-DEuh7X da-positionContainer"
+  sectionContainer.className = class_positionContainer
   sectionContainer.id = "stemojis-web-section"
-  document.getElementsByClassName('da-channelTextArea')[0].appendChild(sectionContainer)
+  document.getElementsByClassName(class_channelTextArea)[0].appendChild(sectionContainer)
   
   var webDiv = document.createElement('div')
   webDiv.style.width = '424px'
