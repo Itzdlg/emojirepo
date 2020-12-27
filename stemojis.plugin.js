@@ -31,6 +31,8 @@ var class_channelTextArea = BdApi.findModuleByProps('channelTextArea', 'channelN
 var class_emojiItemDisabled = BdApi.findModuleByProps('emojiItemDisabled', 'emojiItem').emojiItemDisabled
 var class_positionContainer = BdApi.findModuleByProps('positionContainer', 'positionContainerEditingMessage').positionContainer
 var class_sprite = BdApi.findModuleByProps('sprite', 'emojiButton').sprite
+var class_premiumPromoClose = BdApi.findModuleByProps('premiumPromo', 'premiumPromoClose').premiumPromoClose
+var class_premiumPromo = BdApi.findModuleByProps('premiumPromo', 'premiumPromoClose').premiumPromo
 
 function isEnabled() {
   return BdApi.Plugins.isEnabled("STEmojis")
@@ -46,7 +48,9 @@ module.exports = class STEmojisPlugin {
     
     var EID_Arr = class_emojiItemDisabled.split(' ')
     var EID_classname = '.' + EID_Arr[0] + ', .' + EID_Arr[1]
-    BdApi.injectCSS('STEmojis', EID_classname + ' {filter: none; }')
+    var PP_Arr = class_premiumPromo.split(' ')
+    var PP_classname = '.' + PP_Arr[0] + ', .' + PP_Arr[1]
+    BdApi.injectCSS('STEmojis', EID_classname + ' {filter: none; } ' + PP_classname + ' {display: none; }')
     
     window.setInterval(function() {
       if (isEnabled() === true) {
@@ -68,13 +72,16 @@ module.exports = class STEmojisPlugin {
           
           document.getElementById("stemojis-button").children[0].src = target.src
           stemojis_button_emoji = target.src
-        } else if (exists(target) && exists(className) && target.className.includes(class_emojiItemDisabled)) {
+        } else if (exists(target) && exists(target.className) && target.className.includes(class_emojiItemDisabled)) {
+          e.stopPropagation()
           var emojiImg = target.children[0]
           navigator.clipboard.writeText(emojiImg.src).then(() => {
             console.log('[STEmojis] Copied URL to clipboard')
           }, () => {
             console.log('[STEmojis] Error copying URL to clipboard')
           });
+          
+          document.getElementsByClassName(class_premiumPromo)[0].remove()
         } else if (target.id !== "stemojis-web" && target.id !== "stemojis-button") {
           document.getElementById("stemojis-web").style.display = 'none'
         }
